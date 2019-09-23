@@ -1,0 +1,4 @@
+# Process
+
+# 9-23-19 
+Committed Initial Repository, began work on setting up the shmup 
