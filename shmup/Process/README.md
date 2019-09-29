@@ -2,6 +2,8 @@
 
 This is designed to track the progress of my shmup game  
 
+---
+
 ## 9/25/2019
 
 Started work on Shmup project using the book as a reference. Added basic movement, placeholder assets, 
@@ -25,6 +27,7 @@ I also still need to implement more assets and get the game looking how I want. 
 * Have enemies moving across the top of the screen on a stage, rather than spawning in
 * (Long-term goal) Implement a rewind/music based powerup which lets the player rewind/stop time for a few seconds 
 
+---
 
 ## 9/23/2019
 
