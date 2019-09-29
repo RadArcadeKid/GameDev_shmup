@@ -8,7 +8,7 @@ Started work on Shmup project using the book as a reference. Added basic movemen
 Because my game is different than the one being built,
 I'm attempting to scope it a little differently than the one the author is building. 
 
-####Key differences: 
+#### Key differences: 
 * Has square boundaries instead of a rectangle
 * The player moves in x and y and does not rotate or move along the z axis
 * There is no shield mechanic (doesn't fit what I'm going for right now)
