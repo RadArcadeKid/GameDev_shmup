@@ -21,7 +21,7 @@ I also still need to implement more assets and get the game looking how I want. 
 #### Stretch-goals: 
 * Make it pretty (add real assets + art)
 * Add more solid movement mechanics to enemies 
-* Figure out a way to restrict the player's movement based on the arena
+* Figure out a way to restrict the player's movement based on the arena (better boundaries) 
 * Have enemies moving across the top of the screen on a stage, rather than spawning in
 * (Long-term goal) Implement a rewind/music based powerup which lets the player rewind/stop time for a few seconds 
 
