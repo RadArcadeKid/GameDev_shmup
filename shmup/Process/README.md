@@ -8,10 +8,12 @@ This is designed to track the progress of my shmup game
 I originally had quite a few ideas when it came to building this whole shmup from the ground up, however, what I did know was that it was going to be music based, because I have a passion for music and sound. So, eventually, I stumbled upon the idea of making the shmup where you're a concert attendee who must survive a series of *EVIL DJ'S* and defeat them. I've thought about doing this as a first-person shooter for a while, but I think a rythm-based 3rd-person shmup lends itself much better to this idea. Instead of suriving through waves of enemies on a moving platform like most shmups, you're trapped in a concert venue, and the goal of this is to create a big boss battle wherre you move around the concert floor and attempt to shoot the moving DJ's up top. 
 The USP of this game is that the projectiles are all timed to music - so if you've got a song playing, the drummer's projecticles are timed to the drums of a song, the guitarists are shot in time with the music. 
 
-
-### Change Log: 
-
 ---
+
+
+# Change Log: 
+
+
 
 ## 9/25/2019
 
