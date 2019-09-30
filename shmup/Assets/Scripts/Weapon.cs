@@ -80,7 +80,10 @@ public class Weapon : MonoBehaviour
 
         public void Fire() {
         // If this.gameObject is inactive, return
-        if (!gameObject.activeInHierarchy) return;
+        if (!gameObject.activeInHierarchy){
+            print("GameObject is not in Hierarchy");
+            return;
+        }
         // If it hasn't been enough time between shots, return
         if (Time.time - lastShot < def.delayBetweenShots) {
             return;
@@ -89,10 +92,13 @@ public class Weapon : MonoBehaviour
         switch (type) {
             case WeaponType.blaster:
                 p = MakeProjectile();
+                
                 p.GetComponent<Rigidbody>().velocity = Vector3.up * def.velocity;
+
                 break;
             case WeaponType.spread:
                 p = MakeProjectile();
+
                 p.GetComponent<Rigidbody>().velocity = Vector3.up * def.velocity;
                 p = MakeProjectile();
                 p.GetComponent<Rigidbody>().velocity = new Vector3( -.2f, 0.9f, 0 ) * def.velocity;
@@ -103,6 +109,7 @@ public class Weapon : MonoBehaviour
 
         }
         public Projectile MakeProjectile() {
+
             GameObject go = Instantiate( def.projectilePrefab ) as GameObject;
 
             if ( transform.parent.gameObject.tag == "Hero" ) {

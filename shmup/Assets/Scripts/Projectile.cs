@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
         // Set the _type
         _type = eType;
         WeaponDefinition def = SpawnEnemies.GetWeaponDefinition( _type );
-        GetComponent<Renderer> ().material.color = def.projectileColor;
+        GetComponent<Renderer>().material.color = def.projectileColor;
     }
     void CheckOffscreen() {
         if ( Utils.ScreenBoundsCheck( GetComponent<Collider> ().bounds, BoundsTest.offScreen ) != Vector3.zero ) {
