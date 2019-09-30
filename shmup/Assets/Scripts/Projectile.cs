@@ -20,13 +20,14 @@ public class Projectile : MonoBehaviour
         InvokeRepeating( "CheckOffscreen", 2f, 2f );
     }
     public void SetType( WeaponType eType ) {
+        
         // Set the _type
         _type = eType;
         WeaponDefinition def = SpawnEnemies.GetWeaponDefinition( _type );
-        renderer.material.color = def.projectileColor;
+        GetComponent<Renderer> ().material.color = def.projectileColor;
     }
     void CheckOffscreen() {
-        if ( Utils.ScreenBoundsCheck( collider.bounds, BoundsTest.offScreen ) != Vector3.zero ) {
+        if ( Utils.ScreenBoundsCheck( GetComponent<Collider> ().bounds, BoundsTest.offScreen ) != Vector3.zero ) {
         Destroy( this.gameObject );
         }
     }

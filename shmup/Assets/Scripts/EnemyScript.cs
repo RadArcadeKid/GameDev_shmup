@@ -74,7 +74,7 @@ public class EnemyScript : MonoBehaviour
             }
             // Hurt this Enemy
             // Get the damage amount from the Projectile.type & Main.W_DEFS
-            health -= Main.W_DEFS[p.type].damageOnHit;
+            health -= SpawnEnemies.W_DEFS[p.type].damageOnHit;
             if (health <= 0) {
             // Destroy this Enemy
             Destroy(this.gameObject);
