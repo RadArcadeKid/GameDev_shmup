@@ -93,11 +93,11 @@ public class Weapon : MonoBehaviour
                 break;
             case WeaponType.spread:
                 p = MakeProjectile();
-                p.rigidbody.velocity = Vector3.up * def.velocity;
+                p.GetComponent<Rigidbody>().velocity = Vector3.up * def.velocity;
                 p = MakeProjectile();
-                p.rigidbody.velocity = new Vector3( -.2f, 0.9f, 0 ) * def.velocity;
+                p.GetComponent<Rigidbody>().velocity = new Vector3( -.2f, 0.9f, 0 ) * def.velocity;
                 p = MakeProjectile();
-                p.rigidbody.velocity = new Vector3( .2f, 0.9f, 0 ) * def.velocity;
+                p.GetComponent<Rigidbody>().velocity = new Vector3( .2f, 0.9f, 0 ) * def.velocity;
                 break;
         }
 
