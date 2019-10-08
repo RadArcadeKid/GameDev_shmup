@@ -26,7 +26,7 @@ public enum WeaponType {
 public class WeaponDefinition {
     public WeaponType type = WeaponType.none;
     public string letter; // The letter to show on the power-up
-    public Color color = Color.white; // Color of Collar & power-up
+    public Color color = Color.white; // Csolor of Collar & power-up
     public GameObject projectilePrefab; // Prefab for projectiles
     public Color projectileColor = Color.white;
     public float damageOnHit = 0; // Amount of damage caused
@@ -47,6 +47,7 @@ public class Weapon : MonoBehaviour
         public float lastShot; // Time last shot was fired
 
         void Start() {
+
             collar = transform.Find("Collar").gameObject;
             // Call SetType() properly for the default _type
             SetType( _type );
@@ -73,44 +74,31 @@ public class Weapon : MonoBehaviour
             else {
                 this.gameObject.SetActive(true);
             }
-            def = SpawnEnemies.GetWeaponDefinition(_type);
+            def = Main.GetWeaponDefinition(_type);
             collar.GetComponent<Renderer>().material.color = def.color;
             lastShot = 0; // You can always fire immediately after _type is set.
         }
 
         public void Fire() {
-        // If this.gameObject is inactive, return
-        if (!gameObject.activeInHierarchy){
-            print("GameObject is not in Hierarchy");
-            return;
-        }
-        // If it hasn't been enough time between shots, return
-        if (Time.time - lastShot < def.delayBetweenShots) {
-            return;
-        }
-        Projectile p;
-        switch (type) {
+            // If it hasn't been enough time between shots, return
+            if (Time.time - lastShot < def.delayBetweenShots) {
+                return;
+            }
+            Projectile p;
+            switch (type) {
             case WeaponType.blaster:
                 p = MakeProjectile();
-                
-                p.GetComponent<Rigidbody>().velocity = Vector3.up * def.velocity;
-
                 break;
             case WeaponType.spread:
                 p = MakeProjectile();
-
-                p.GetComponent<Rigidbody>().velocity = Vector3.up * def.velocity;
-                p = MakeProjectile();
-                p.GetComponent<Rigidbody>().velocity = new Vector3( -.2f, 0.9f, 0 ) * def.velocity;
-                p = MakeProjectile();
-                p.GetComponent<Rigidbody>().velocity = new Vector3( .2f, 0.9f, 0 ) * def.velocity;
                 break;
+            }
         }
 
-        }
         public Projectile MakeProjectile() {
-
             GameObject go = Instantiate( def.projectilePrefab ) as GameObject;
+            Rigidbody rb = go.GetComponent<Rigidbody>();
+            rb.velocity = Vector3.up * def.velocity;
 
             if ( transform.parent.gameObject.tag == "Hero" ) {
                 go.tag = "ProjectileHero";
@@ -125,6 +113,7 @@ public class Weapon : MonoBehaviour
             Projectile p = go.GetComponent<Projectile>();
             p.type = type;
             lastShot = Time.time;
+
             return( p );
         }
 }

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement; //for scene management WOW
 
-public class SpawnEnemies : MonoBehaviour
+public class Main : MonoBehaviour
 {
-    static public SpawnEnemies S;
+    static public Main S;
     static public Dictionary<WeaponType, WeaponDefinition> W_DEFS;
 
     public GameObject[] prefabEnemies;

@@ -9,7 +9,7 @@ static public HeroScript S; // Singleton
 public float gameRestartDelay = 2f; //a delay for the gameplay restart 
 
     // These fields control the movement of the ship
-    public float speed = 30;
+    public float speed = 10;
     public float rollMult = -45;
     public float pitchMult = 30;
     // Ship status information
@@ -107,7 +107,7 @@ public float gameRestartDelay = 2f; //a delay for the gameplay restart
             if (value < 0) { // 3
                 Destroy(this.gameObject);
                 // Tell Main.S to restart the game after a delay
-                SpawnEnemies.S.DelayedRestart( gameRestartDelay );
+                Main.S.DelayedRestart( gameRestartDelay );
             }
         }
     }
