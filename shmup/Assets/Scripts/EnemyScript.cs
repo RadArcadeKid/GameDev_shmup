@@ -29,7 +29,7 @@ public class EnemyScript : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        Move();
+        //Move();
         if (remainingDamageFrames>0) {
             remainingDamageFrames--;
             if (remainingDamageFrames == 0) {
@@ -37,11 +37,11 @@ public class EnemyScript : MonoBehaviour
             }
         }
     }
-    public virtual void Move() {
-         Vector3 tempPos = pos;
-        tempPos.y -= speed * Time.deltaTime;
-        pos = tempPos;
-    }
+    // public virtual void Move() {
+    //      Vector3 tempPos = pos;
+    //     tempPos.y -= speed * Time.deltaTime;
+    //     pos = tempPos;
+    // }
 
 
     // This is a Property: A method that acts like a field
@@ -76,12 +76,10 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter ( Collision coll ) {
-        print("OnCollisionEnter has been called");
+    void OnTriggerEnter ( Collider coll ) {
         GameObject other = coll.gameObject;
         switch (other.tag) {
             case "ProjectileHero":
-            print("ProjectileHero collided with enemy");
             Projectile p = other.GetComponent<Projectile>();
             // Enemies don't take damage unless they're onscreen
             // This stops the player from shooting them before they are visible
@@ -105,7 +103,6 @@ public class EnemyScript : MonoBehaviour
     }
 
     void ShowDamage() {
-        print("Bullet damaged enemy");
         foreach (Material m in materials) {
             m.color = Color.red;
         }
