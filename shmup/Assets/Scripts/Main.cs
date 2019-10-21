@@ -15,8 +15,13 @@ public class Main : MonoBehaviour
     public bool ________________; //that's a disgusting variable name 
     public WeaponType[] activeWeaponTypes;    
     public float enemySpawnRate; // Delay between Enemy spawns
+    public AudioSource source; 
 
     [SerializeField] public HealthBar health_bar; 
+
+    public GameObject player_; 
+    public GameObject e1_, e2_, e3_;
+
 
 
     void Awake() {
@@ -77,15 +82,21 @@ public class Main : MonoBehaviour
     }
 
     public void DelayedRestart( float delay ) {
+        source.Play(); 
         // Invoke the Restart() method in delay seconds
         Invoke("Restart", delay);
     }
     public void Restart() {
         // Reload _Scene_0 to restart the game
-        SceneManager.LoadScene("_SampleScene");
+        SceneManager.LoadScene("Main");
     }
 
     public void Update(){
-
+        if(player_ == null){
+            SceneManager.LoadScene("GameOverLose");
+        }
+        if(e1_ == null && e2_ == null && e3_ == null){
+            SceneManager.LoadScene("GameOverWin");
+        }
     }
 }
