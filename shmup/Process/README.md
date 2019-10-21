@@ -14,11 +14,11 @@
 * Ironed out some bugs and weird boundary issues I had with collision 
 
 
-## Notes:
+### Notes on the final build:
 
 
-Man, I really wish I had more time on this thing. It turned into way-more of a bullet-hell than I was expecting!
-Also - there's so many other little small mechanics I wanted to add that I simply just did not have time for...I really wanted to expand on this with multiple levels/songs, weird powerups, and more interesting ways to have the enemies interact. The final product is nice, but it's not where I wanted it to be and it bums me out! I had an idea where the player could replenish health with a vending machine, obtain "earplugs" to pause the music, and even clear projectiles. 
+Man, I really wish I had more time on this thing. It turned into way-more of a bullet-hell than I was expecting! Regradless, I feel like this absolutely put *much* more of an emphasis on survival and quick-thinking dodging + strategy than I was expecting 
+Also - there's so many other little small mechanics I wanted to add that I simply just did not have time for...I really wanted to expand on this with multiple levels/songs, weird powerups, and more interesting ways to have the enemies interact. The final product is nice, but it's not where I wanted it to be and it bums me out! I had an idea where the player could replenish health with a vending machine, obtain "earplugs" to pause the music or that would clear all projectiles. 
 
 
 ---
