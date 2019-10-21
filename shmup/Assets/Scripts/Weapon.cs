@@ -8,7 +8,9 @@ using UnityEngine;
 public enum WeaponType {
     none, // The default / no weapon
     blaster, // A simple blaster
-    spread, // Two shots simultaneously
+    guitaristShot, // Two shots simultaneously
+    drummerShot,
+    vocalShot,
     phaser, // Shots that move in waves [NI]
     missile, // Homing missiles [NI]
     laser, // Damage over time [NI]
@@ -48,7 +50,7 @@ public class Weapon : MonoBehaviour
 
         void Start() {
 
-            collar = transform.Find("Collar").gameObject;
+            //collar = transform.Find("Collar").gameObject;
             // Call SetType() properly for the default _type
             SetType( _type );
             if (PROJECTILE_ANCHOR == null) {
@@ -89,27 +91,37 @@ public class Weapon : MonoBehaviour
             case WeaponType.blaster:
                 p = MakeProjectile();
                 break;
-            case WeaponType.spread:
+            case WeaponType.guitaristShot:
                 p = MakeProjectile();
                 break;
-            }
+            case WeaponType.drummerShot:
+                p = MakeProjectile();
+                break;
+            case WeaponType.vocalShot:
+                p = MakeProjectile();
+                break;
+            }                        
         }
 
         public Projectile MakeProjectile() {
-            GameObject go = Instantiate( def.projectilePrefab ) as GameObject;
+            GameObject go = Instantiate( def.projectilePrefab, transform.position, transform.rotation) as GameObject;
             Rigidbody rb = go.GetComponent<Rigidbody>();
-            rb.velocity = Vector3.up * def.velocity;
+            
+            go.transform.rotation = collar.transform.rotation;  //transform to the rotation of the collar, so that it will fire forwards!! 
+            go.transform.position = collar.transform.position;
+            go.transform.parent = PROJECTILE_ANCHOR;
 
             if ( transform.parent.gameObject.tag == "Hero" ) {
+                rb.velocity = Vector3.up * def.velocity;    
                 go.tag = "ProjectileHero";
                 go.layer = LayerMask.NameToLayer("ProjectileHero");
             }
             else {
+                //rb.velocity = Vector3.down * def.velocity;   
+                rb.velocity = (go.transform.rotation * Vector3.down) * def.velocity;                                         
                 go.tag = "ProjectileEnemy";
                 go.layer = LayerMask.NameToLayer("ProjectileEnemy");
             }
-            go.transform.position = collar.transform.position;
-            go.transform.parent = PROJECTILE_ANCHOR;
             Projectile p = go.GetComponent<Projectile>();
             p.type = type;
             lastShot = Time.time;

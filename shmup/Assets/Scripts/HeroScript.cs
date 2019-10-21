@@ -20,6 +20,7 @@ public float gameRestartDelay = 2f; //a delay for the gameplay restart
     
     public Bounds bounds; 
 
+
     // Declare a new delegate type WeaponFireDelegate
     public delegate void WeaponFireDelegate();
     // Create a WeaponFireDelegate field named fireDelegate.
@@ -44,7 +45,7 @@ public float gameRestartDelay = 2f; //a delay for the gameplay restart
         bounds.center = transform.position; // 1
         
         // Keep the ship constrained to the screen bounds
-        Vector3 off = Utils.ScreenBoundsCheck(bounds, BoundsTest.onScreen); // 2
+        Vector3 off = Utils.ScreenBoundsCheck(bounds, BoundsTest.center); // 2
         if ( off != Vector3.zero ) { // 3
             pos -= off;
             transform.position = pos;
@@ -80,7 +81,7 @@ public float gameRestartDelay = 2f; //a delay for the gameplay restart
                 }
                 
                 lastTriggerGo = go; // 3
-                if (go.tag == "Enemy") {
+                if (go.tag == "Enemy" || go.tag == "ProjectileEnemy") {
                         // If the shield was triggered by an enemy
                         // Decrease the level of the shield by 1
                         shieldLevel--;
@@ -88,12 +89,9 @@ public float gameRestartDelay = 2f; //a delay for the gameplay restart
                     Destroy(go); // 4
                 } 
                 else {
-                        print("Triggered: "+go.name); // Move this line here!
                 }
         } 
         else {
-            // Otherwise announce the original other.gameObject
-            print("Triggered: "+other.gameObject.name); // Move this line here!
         }
     }
 
@@ -102,7 +100,7 @@ public float gameRestartDelay = 2f; //a delay for the gameplay restart
             return( _shieldLevel ); // 1
         }
         set {
-            _shieldLevel = Mathf.Min( value, 4 ); // 2 (ensures the _shieldLevel is never set higher than 4)
+            _shieldLevel = Mathf.Min( value, 15 ); // 2 (ensures the _shieldLevel is never set higher than 4)
             // If the shield is going to be set to less than zero
             if (value < 0) { // 3
                 Destroy(this.gameObject);
@@ -112,7 +110,10 @@ public float gameRestartDelay = 2f; //a delay for the gameplay restart
         }
     }
 
-
+    
+    public float GetHealth(){
+        return _shieldLevel; //return this enemies health!
+    }
 
 
 

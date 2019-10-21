@@ -8,6 +8,10 @@ public class EnemyScript : MonoBehaviour
     public float fireRate = 0.3f; // Seconds/shot (Unused)
     public float health = 10;
     public int score = 100; // Points earned for destroying this
+
+
+    public GameObject weapon; 
+
     public bool ________________;
 
     public Color[] originalColors;
@@ -17,6 +21,7 @@ public class EnemyScript : MonoBehaviour
     public Bounds bounds; // The Bounds of this and its children
     public Vector3 boundsCenterOffset; // Dist of bounds.center from position
     public int showDamageForFrames = 2; // # frames to show damage
+
 
     void Awake() {
         materials = Utils.GetAllMaterials( gameObject );
@@ -36,12 +41,16 @@ public class EnemyScript : MonoBehaviour
                 UnShowDamage();
             }
         }
+
     }
-    // public virtual void Move() {
-    //      Vector3 tempPos = pos;
-    //     tempPos.y -= speed * Time.deltaTime;
-    //     pos = tempPos;
-    // }
+
+    //Fire weapon
+    //(public so other scripts can access it) 
+    public void Fire(){
+        if(weapon != null){ //if the weapon exists...
+            weapon.GetComponent<Weapon>().Fire(); //will spawn the projectile based on the enemies' weapon 
+        }
+    }
 
 
     // This is a Property: A method that acts like a field
@@ -114,6 +123,10 @@ public class EnemyScript : MonoBehaviour
         for ( int i=0; i<materials.Length; i++ ) {
             materials[i].color = originalColors[i];
         }
+    }
+
+    public float GetHealth(){
+        return health; //return this enemies health!
     }
 
 

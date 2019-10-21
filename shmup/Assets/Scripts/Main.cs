@@ -16,6 +16,8 @@ public class Main : MonoBehaviour
     public WeaponType[] activeWeaponTypes;    
     public float enemySpawnRate; // Delay between Enemy spawns
 
+    [SerializeField] public HealthBar health_bar; 
+
 
     void Awake() {
         S = this;
@@ -24,7 +26,7 @@ public class Main : MonoBehaviour
         // 0.5 enemies/second = enemySpawnRate of 2
         enemySpawnRate = 1f/enemySpawnPerSecond; // 1
         // Invoke call SpawnEnemy() once after a 2 second delay
-        Invoke( "SpawnEnemy", enemySpawnRate ); // 2
+       // Invoke( "SpawnEnemy", enemySpawnRate ); // 2
 
         // A generic Dictionary with WeaponType as the key
         W_DEFS = new Dictionary<WeaponType, WeaponDefinition>();
@@ -46,6 +48,7 @@ public class Main : MonoBehaviour
     }
 
     void Start() {
+
         activeWeaponTypes = new WeaponType[weaponDefinitions.Length];
 
         for (int i=0; i<weaponDefinitions.Length; i++) {
@@ -80,5 +83,9 @@ public class Main : MonoBehaviour
     public void Restart() {
         // Reload _Scene_0 to restart the game
         SceneManager.LoadScene("_SampleScene");
+    }
+
+    public void Update(){
+
     }
 }
