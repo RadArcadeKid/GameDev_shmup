@@ -1,7 +1,42 @@
 # Game Development Progress - SHMUP 
 
-This is designed to track the progress of my shmup game  
 
+---
+
+# Final Entry - 10/21/2019
+* There are now multiple enemies on the board - 
+* ALL have thier own unique music tracks, projectilies, and THEY SPAWN TO THE MUSIC 
+* Enemies all have their own unique movement system
+* More aesthetically pleaing and clear health bars
+* Assets are now actual art instead of more placeholders
+* There is an audience the player can shove-around and interact with at a very basic level (more for visual aesthetics than anything else) 
+* Adjusted difficultly curve to make the shmup easier to play
+* Ironed out some bugs and weird boundary issues I had with collision 
+
+
+## Notes:
+
+
+Man, I really wish I had more time on this thing. It turned into way-more of a bullet-hell than I was expecting!
+Also - there's so many other little small mechanics I wanted to add that I simply just did not have time for...I really wanted to expand on this with multiple levels/songs, weird powerups, and more interesting ways to have the enemies interact. The final product is nice, but it's not where I wanted it to be and it bums me out! I had an idea where the player could replenish health with a vending machine, obtain "earplugs" to pause the music, and even clear projectiles. 
+
+
+---
+
+# Midpoint Entry - 9/09/2019
+* Enemy shoots at player
+* Single enemy on the board
+* Basic random movement system for enemy 
+* Enemy is able to use the FFT (Fast-Fourier Transform) to shoot at the player *BASED ON MUSIC!!* 
+* (Need to figure out how to get the above working with multiple audio sources)
+* Basic movement system is ironed-out
+* Player and Enemy have health bars 
+* Started work on finishing placeholder art and ideas
+* Audience member assets are in place (static, non-interactive) 
+
+I really want to add more enemies and more interesting projectiles for the player to dodge. As this game gets more interesting, I want to add less placeholder art and more interesting ways to dodge the bullets!! 
+
+---
 
 ### Brainstorming Ideas, initial setup
 
