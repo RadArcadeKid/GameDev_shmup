@@ -17,8 +17,6 @@
 
 
 ### Notes on the final build:
-
-I'm pretty happy with how this turned out, but man, I really wish I had more time on this thing.
 It turned into way-more of a bullet-hell than I was expecting! Regradless, I feel like this absolutely put *much* more of an emphasis on survival and quick-thinking dodging + strategy than I was expecting. Honestly though, this plays into the design goal of making the player feel overwhelmed, which I really like. It encourages survival and quick-timing thinking with dodging the variety of projectiles. 
 Also - there's so many other little small mechanics I wanted to add that I simply just did not have time for...I really wanted to expand on this with multiple levels/songs, weird powerups, and more interesting ways to have the enemies interact. The final product is nice, but it's not where I totally wanted it to be! I had an idea where the player could replenish health with a vending machine, obtain "earplugs" to pause the music or that would clear all projectiles. Oh well.
 I also wanted to expand on the idea of making it more rythm-based (i.e. the player could only shoot to the beat, or move to the beat). 
